@@ -355,7 +355,7 @@ def sample_community_damage(inventory_filename, ground_motion_filename, vulnerab
     n_ruptures = len(ruptures)
     n_bldgs = len(bldgs)
     [_, n_damage_parameters, _] = vulnerability[bldg_ids[0]].shape
-    damage_parameters = vulnerability[bldg_ids[0]].attrs.__getitem__('parameters').decode('ascii').split(',')
+    damage_parameters = vulnerability[bldg_ids[0]].attrs.__getitem__('parameters').split(',')
 
     # initialize outputs
     n_realizations = options['n_realizations']
@@ -530,7 +530,7 @@ def sample_community_damage_with_retrofits(inventory_filename, ground_motion_fil
     n_ruptures = len(ruptures)
     n_bldgs = len(bldgs)
     [_, n_damage_parameters, _] = original_vulnerability[bldg_ids[0]].shape
-    damage_parameters = original_vulnerability[bldg_ids[0]].attrs.__getitem__('parameters').decode('ascii').split(',')
+    damage_parameters = original_vulnerability[bldg_ids[0]].attrs.__getitem__('parameters').split(',')
 
     # initialize outputs
     n_realizations = options['n_realizations']

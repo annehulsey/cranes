@@ -445,7 +445,8 @@ def evaluate_cordons(bldgs, community_damage, impeding_factors, output_filename,
                                                                                    cordon_durations)
 
     dt = options['dt']
-    [community_recovery, time, occ_labels, n_bldgs, sqft_totals] = parallel_community_recovery(bldgs, community_downtime, downtime_parameters, dt)
+    occ_labels = options['occ_labels']
+    [community_recovery, time, n_bldgs, sqft_totals] = parallel_community_recovery(bldgs, community_downtime, downtime_parameters, occ_labels, dt)
 
     # save cordon logistics and underlying results
     with h5py.File(output_filename, 'r+') as hf:
@@ -522,7 +523,7 @@ def evaluate_cordons(bldgs, community_damage, impeding_factors, output_filename,
     return community_downtime
 
 
-def calculate_community_recovery(bldgs, community_downtime, time, downtime_parameters, i_sim):
+def calculate_community_recovery(bldgs, community_downtime, time, downtime_parameters, occ_labels, i_sim):
     # index the columns for each recovery parameter
     recovery_labels = ['functional_repair', 'impeding_factor_delay', 'functional_downtime', 'cordon_duration',
                        'cordon_induced_delay', 'total_delay', 'total_downtime']
@@ -531,7 +532,6 @@ def calculate_community_recovery(bldgs, community_downtime, time, downtime_param
 
     # retrieve the indices of relevant buildings
     col_occ = 'building.occupancy_id'
-    occ_labels = ['Residential', 'Commercial Office', 'All Occupancies']
     occ_idx = [None] * len(occ_labels)
     occ_idx[0] = bldgs[col_occ] == 'Residential'
     occ_idx[1] = bldgs[col_occ] == 'Commercial Office'
@@ -573,15 +573,16 @@ def calculate_community_recovery(bldgs, community_downtime, time, downtime_param
     return community_recovery
 
 
-def parallel_community_recovery(bldgs, community_downtime, downtime_parameters, dt):
+def parallel_community_recovery(bldgs, community_downtime, downtime_parameters, occ_labels, dt):
     [_,_,_,n_sims] = community_downtime.shape
 
     t_min = 0
     t_max = np.max(community_downtime)
     time = np.arange(t_min, t_max+dt, dt)
 
+    # occ_labels = ['Residential', 'Commercial Office', 'All Occupancies']
     p = mp.Pool()
-    part_calc_recovery = partial(calculate_community_recovery, bldgs, community_downtime, time, downtime_parameters)
+    part_calc_recovery = partial(calculate_community_recovery, bldgs, community_downtime, time, downtime_parameters, occ_labels)
     community_recovery = p.map(part_calc_recovery, [i for i in range(0,n_sims)])
     p.close()
     p.join()
@@ -604,4 +605,4 @@ def parallel_community_recovery(bldgs, community_downtime, downtime_parameters, 
     sqft_lists = [bldgs.loc[x, col_sqft].values for x in occ_idx]
     sqft_totals = [np.sum(x) for x in sqft_lists]
 
-    return community_recovery, time, occ_labels, n_bldgs, sqft_totals
+    return community_recovery, time, n_bldgs, sqft_totals

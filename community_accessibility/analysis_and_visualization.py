@@ -3,13 +3,15 @@ from .community_damage_sampling import *
 from .downtime_logistics import *
 
 def load_results(input_filenames, output_filename, i_analysis, options):
+    ####
+
     [i_damage, i_impeding_factors, i_cordons] = i_analysis
 
     if input_filenames is None:
         new_analysis = False
     else:
         new_analysis = True
-        [inventory_filename, inventory_geojson_filename, ground_motion_filename, original_vulnerability_filename, retrofit_vulnerability_filename] = input_filenames
+        [inventory_filename, ground_motion_filename, original_vulnerability_filename, retrofit_vulnerability_filename] = input_filenames
 
 
     # if output folder does not yet exist, create it
@@ -38,9 +40,6 @@ def load_results(input_filenames, output_filename, i_analysis, options):
             community_damage = sample_community_damage_with_retrofits(inventory_filename, ground_motion_filename,
                                                        original_vulnerability_filename, retrofit_vulnerability_filename,
                                                        output_filename, i_analysis, options)
-            # community_damage = sample_community_damage(inventory_filename, ground_motion_filename,
-            #                                                           original_vulnerability_filename,
-            #                                                           output_filename, i_analysis, options)
             print('Damage sampled')
 
         else:
