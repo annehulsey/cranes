@@ -1,0 +1,1 @@
+Replace this empty folder with the folder titled gis_data on DesignSafe.
