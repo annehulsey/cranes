@@ -282,7 +282,50 @@ def add_downtime_contributions_bar(community_recovery, time, i_rup, i_occ, sqft_
                 color='black', fontsize='large', zorder=20)
 
 
-def grid_plot_mean_community_recovery(community_recovery, time, xlim, i_rup, i_occ, sqft_totals, ax):
+# def grid_plot_mean_community_recovery(community_recovery, time, xlim, i_rup, i_occ, sqft_totals, ax):
+#     occ_labels = ['Residential', 'Commercial Office', 'All Occupancies']
+#     recovery_labels = ['functional_repair', 'impeding_factor_delay', 'functional_downtime', 'cordon_duration',
+#                        'cordon_induced_delay', 'total_delay', 'total_downtime']
+#     repair_idx = recovery_labels.index('functional_repair')
+#     no_cordon_downtime_idx = recovery_labels.index('functional_downtime')
+#     downtime_idx = recovery_labels.index('total_downtime')
+#
+#     prop_cycle = plt.rcParams['axes.prop_cycle']
+#     colors = prop_cycle.by_key()['color']
+#
+#     idx = repair_idx
+#     repair_time = 100 * np.mean(community_recovery[:, i_rup, i_occ, idx, :], axis=1)
+#     ax.fill_between(time, repair_time, 100, color='darkgray')
+#
+#     idx = no_cordon_downtime_idx
+#     no_cordon_downtime = 100 * np.mean(community_recovery[:, i_rup, i_occ, idx, :], axis=1)
+#     if not np.array_equal(no_cordon_downtime, repair_time):
+#         ax.fill_between(time, no_cordon_downtime, repair_time, color=colors[0])
+#
+#     idx = downtime_idx
+#     downtime = 100 * np.mean(community_recovery[:, i_rup, i_occ, idx, :], axis=1)
+#     if not np.array_equal(downtime, no_cordon_downtime):
+#         ax.fill_between(time, downtime, no_cordon_downtime, color=colors[1])
+#
+#     add_downtime_contributions_bar(community_recovery, time, i_rup, i_occ, sqft_totals, ax, xlim)
+#
+#     legend_elements = [Patch(facecolor=colors[0], label='Impeding Factors'),
+#                        Patch(facecolor=colors[1], label='Cordon Delays'),
+#                        Patch(facecolor='darkgray', label='Repair Time')
+#                        ]
+#     _ = ax.legend(handles=legend_elements, title='   Average Contribution of:  ', loc=(0.59, 0.02))
+#
+#     _ = ax.grid(axis='both', color='lightgray', alpha=0.5)
+
+def grid_plot_mean_community_recovery(community_recovery, time, xlim, i_rup, i_occ, sqft_totals, ax, legend):
+    color_values = [0.15, 0.35, 0.65, 0.9]
+    color_palettes = ['Greens', 'Greys', 'Oranges', 'Blues']
+    colors = [mpl.cm.get_cmap(color_palettes[i])(color_values[i])[:-1] for i in range(len(color_values))]
+    if False:
+        colors = [grayscale_version(colors[i]) for i in range(len(colors))]
+    colors = [mpl.colors.to_hex(colors[i]) for i in range(len(colors))]
+    colors = colors[1:]
+
     occ_labels = ['Residential', 'Commercial Office', 'All Occupancies']
     recovery_labels = ['functional_repair', 'impeding_factor_delay', 'functional_downtime', 'cordon_duration',
                        'cordon_induced_delay', 'total_delay', 'total_downtime']
@@ -290,29 +333,30 @@ def grid_plot_mean_community_recovery(community_recovery, time, xlim, i_rup, i_o
     no_cordon_downtime_idx = recovery_labels.index('functional_downtime')
     downtime_idx = recovery_labels.index('total_downtime')
 
-    prop_cycle = plt.rcParams['axes.prop_cycle']
-    colors = prop_cycle.by_key()['color']
-
     idx = repair_idx
     repair_time = 100 * np.mean(community_recovery[:, i_rup, i_occ, idx, :], axis=1)
-    ax.fill_between(time, repair_time, 100, color='darkgray')
+    ax.fill_between(time, repair_time, 100, color=colors[0])
 
     idx = no_cordon_downtime_idx
     no_cordon_downtime = 100 * np.mean(community_recovery[:, i_rup, i_occ, idx, :], axis=1)
     if not np.array_equal(no_cordon_downtime, repair_time):
-        ax.fill_between(time, no_cordon_downtime, repair_time, color=colors[0])
+        ax.fill_between(time, no_cordon_downtime, repair_time, color=colors[2])
 
     idx = downtime_idx
     downtime = 100 * np.mean(community_recovery[:, i_rup, i_occ, idx, :], axis=1)
     if not np.array_equal(downtime, no_cordon_downtime):
         ax.fill_between(time, downtime, no_cordon_downtime, color=colors[1])
 
-    add_downtime_contributions_bar(community_recovery, time, i_rup, i_occ, sqft_totals, ax, xlim)
+    if True:
+        time_idx = np.where(time == 360)[0][0]
+        ax.plot(time[:time_idx + 1], downtime[:time_idx + 1], color='k', linestyle='--')
+        ax.plot([time[time_idx]] * 2, [downtime[time_idx], 100], color='k', linestyle='--')
 
-    legend_elements = [Patch(facecolor=colors[0], label='Impeding Factors'),
-                       Patch(facecolor=colors[1], label='Cordon Delays'),
-                       Patch(facecolor='darkgray', label='Repair Time')
-                       ]
-    _ = ax.legend(handles=legend_elements, title='   Average Contribution of:  ', loc=(0.59, 0.02))
+    if legend:
+        legend_elements = [Patch(facecolor=colors[0], label='Repair Time'),
+                           Patch(facecolor=colors[2], label='Impeding Factors'),
+                           Patch(facecolor=colors[1], label='Cordon Delays')
+                           ]
+        _ = ax.legend(handles=legend_elements, loc='lower right')
 
-    _ = ax.grid(axis='both', color='lightgray', alpha=0.5)
+    _ = ax.grid(axis='both', color='gray', linestyle=':')
