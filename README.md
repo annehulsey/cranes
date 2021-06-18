@@ -1,6 +1,6 @@
-# community_accessibility_framework
+# High-resolution Post-earthquake Recovery Simulation of Safety Cordons
 
-This repository includes the codes from using the community accessibility framework and the the case study implemented in the journal article "Assessing the Impact of Post-Earthquake Safety Cordons on Building Accessibility.
+This repository includes a python package for simulating the effect of safety cordons in a community, with the example case study implemented in the journal article: "High-resolution Post-earthquake Recovery Simulation: Impact of Safety Cordons".
 
 Subfolder for the downtown San Francisco Case study:
 
