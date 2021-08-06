@@ -1,0 +1,152 @@
+{
+    "Inspection": {
+        "Essential": {
+            "Default": {
+                "median": 2,
+                "beta": 0.54
+            },
+            "BORP": {
+                "median": 1,
+                "beta": 0.54
+            }
+        },
+        "Non-Essential": {
+            "Default": {
+                "median": 5,
+                "beta": 0.54
+            },
+            "BORP": {
+                "median": 1,
+                "beta": 0.54
+            }
+        }
+    },
+    "EngMob": {
+        "On Contract": {
+            "Low Damage": {
+                "median": 2,
+                "beta": 0.32
+            },
+            "High Damage": {
+                "median": 4,
+                "beta": 0.54
+            },
+            "Replacement": {
+                "median": 42,
+                "beta": 0.45
+            }
+        },
+        "Default": {
+            "Low Damage": {
+                "median": 6,
+                "beta": 0.4
+            },
+            "High Damage": {
+                "median": 12,
+                "beta": 0.4
+            },
+            "Replacement": {
+                "median": 50,
+                "beta": 0.32
+            }
+        }
+    },
+    "Financing": {
+        "Pre-arranged Credit": {
+            "median": 1,
+            "beta": 0.54
+        },
+        "Insurance": {
+            "median": 6,
+            "beta": 1.11
+        },
+        "Private Loans": {
+            "median": 15,
+            "beta": 0.68
+        },
+        "SBA-backed Loans": {
+            "median": 48,
+            "beta": 0.57
+        }
+    },
+    "ContrMob": {
+        "Essential": {
+            "On Contract": {
+                "Low Damage": {
+                    "median": 3,
+                    "beta": 0.66
+                },
+                "High Damage": {
+                    "median": 7,
+                    "beta": 0.35
+                }
+            },
+            "Default": {
+                "Low Damage": {
+                    "median": 7,
+                    "beta": 0.6
+                },
+                "High Damage": {
+                    "median": 19,
+                    "beta": 0.38
+                }
+            }
+        },
+        "Non-Essential": {
+            "On Contract": {
+                "Low Damage": {
+                    "median": 3,
+                    "beta": 0.66
+                },
+                "High Damage": {
+                    "median": 7,
+                    "beta": 0.35
+                }
+            },
+            "Default": {
+                "Low Damage": {
+                    "median": 11,
+                    "beta": 0.43
+                },
+                "High Damage": {
+                    "median": 23,
+                    "beta": 0.41
+                }
+            }
+        },
+        "Highrise": {
+            "On Contract": {
+                "Low Damage": {
+                    "median": 3,
+                    "beta": 0.66
+                },
+                "High Damage": {
+                    "median": 7,
+                    "beta": 0.35
+                }
+            },
+            "Default": {
+                "Low Damage": {
+                    "median": 28,
+                    "beta": 0.3
+                },
+                "High Damage": {
+                    "median": 40,
+                    "beta": 0.31
+                }
+            }
+        }
+    },
+    "Permitting": {
+        "Default": {
+            "Low Damage": {
+                "median": 1,
+                "beta": 0.86
+            },
+            "High Damage": {
+                "median": 8,
+                "beta": 0.32
+            }
+        }
+    }
+}
