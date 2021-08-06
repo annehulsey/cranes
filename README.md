@@ -18,7 +18,7 @@
 
 ## How can I get started?
 
-You can get oriented with the [example](https://github.com/annehulsey/cranes/tree/master/downtown%20SF%20case%20study) provided on the `cranes` GitHub repository. The datafiles are available at DesignSafe, as described in the README files in the ***inputs*** and ***outputs*** folders:
+You can get oriented with the [example](https://github.com/annehulsey/cranes/tree/master/downtown%20SF%20case%20study) provided on the `cranes` GitHub repository. The datafiles are available at DesignSafe ([DOI](https://doi.org/10.17603/ds2-dpam-dm40)), as described in the README files in the ***inputs*** and ***outputs*** folders:
 
 - ***inputs***: 
   - *SF_Downtown_Inventory.csv*: 	locations and attributes of each buildings in the case study area
