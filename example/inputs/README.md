@@ -1,1 +1,0 @@
-Replace this empty folder with the folder titled inputs on DesignSafe.
