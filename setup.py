@@ -36,6 +36,7 @@ setup(
         'multiprocessing',
         'functools',
         'shapely',
+        'ast'
 
     ],
     classifiers = [

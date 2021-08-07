@@ -11,6 +11,7 @@ import os
 import multiprocessing as mp
 from functools import partial
 import operator
+import ast
 from shapely.geometry import Point
 
 from matplotlib.lines import Line2D
