@@ -1,4 +1,4 @@
-<p align="center"> <img src="https://github.com/annehulsey/cranes/blob/master/doc_src/cranes_title.PNG" align="middle" height=75 /></p>
+<p align="center"> <img src="https://raw.githubusercontent.com/annehulsey/cranes/master/doc_src/cranes_title.PNG" align="middle" height=75 /></p>
 
 <p align="center"> <b>C</b>ordons</b> in <b>R</b>ecovery</b> <b>A</b>ssessments of <b>N</b>eighborhoods following <b>E</b>arthquake <b>S</b>imulations</p>
 
