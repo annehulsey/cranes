@@ -6,7 +6,7 @@
 
 ## What is it?
 
-`cranes` is a Python package that implements the recovery simulation framework described in Hulsey et at. (2021) "High-resolution post-earthquake recovery simulation: Impact of safety cordons." *Earthquake Spectra*. (In Review)
+`cranes` is a Python package that implements the recovery simulation framework described in Hulsey, A.M., Baker, J.W., Deierlein, G.G. (2021) "High-resolution post-earthquake recovery simulation: Impact of safety cordons." *Earthquake Spectra*. (In Review)
 
 ## What can I use it for?
 
@@ -18,7 +18,7 @@
 
 ## How can I get started?
 
-You can get oriented with the [example](https://github.com/annehulsey/cranes/tree/master/downtown%20SF%20case%20study) provided on the `cranes` GitHub repository. The datafiles are available at DesignSafe ([DOI](https://doi.org/10.17603/ds2-dpam-dm40)), as described in the README files in the ***inputs*** and ***outputs*** folders:
+You can get oriented with the [example](https://github.com/annehulsey/cranes/tree/master/example/example.zip) provided on the `cranes` GitHub repository. The datafiles are available at DesignSafe ([DOI](https://doi.org/10.17603/ds2-dpam-dm40)), as described in the README files in the ***inputs***, ***outputs***, and ***journal figures/gis_data*** folders. Note that amount of data is very large: the zipped download of the combined folders is about 28GB.
 
 - ***inputs***: 
   - *SF_Downtown_Inventory.csv*: 	locations and attributes of each buildings in the case study area
@@ -29,6 +29,8 @@ You can get oriented with the [example](https://github.com/annehulsey/cranes/tre
 - ***outputs***: 
   - *case_study_results.h5*: 	results of the case study
   - *median_ground_motion_comparison_results.h5*: 	results without considering the variability of the ground motions
+
+- ***journal figures/gis_data***: 	.geojson files for mapping
 
 You can explore the results using the Jupyter Notebooks included in the ***journal figures*** folder. While they were created to produce the figures in Hulsey et at. (2021), they also serve as an orientation for accessing, viewing, and understanding the data.
 

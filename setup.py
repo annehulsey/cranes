@@ -14,7 +14,7 @@ long_description = read('README.md')
 
 setup(
     name='cranes',
-    version='0.0.1',
+    version='0.0.4',
     url='https://github.com/annehulsey/cranes',
     license='MIT License',
     author='Anne Hulsey',
@@ -33,11 +33,7 @@ setup(
         'utm',
         'matplotlib',
         'geojson',
-        'multiprocessing',
-        'functools',
-        'shapely',
-        'ast'
-
+        'shapely'
     ],
     classifiers = [
         'Programming Language :: Python',
