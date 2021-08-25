@@ -14,7 +14,7 @@ long_description = read('README.md')
 
 setup(
     name='cranes',
-    version='0.0.5',
+    version='1.0.0',
     url='https://github.com/annehulsey/cranes',
     license='MIT License',
     author='Anne Hulsey',

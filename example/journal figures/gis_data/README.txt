@@ -1,1 +1,0 @@
-Replace this empty folder with the folder titled gis_data on DesignSafe: https://doi.org/10.17603/ds2-dpam-dm40

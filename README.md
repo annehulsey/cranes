@@ -18,23 +18,29 @@
 
 ## How can I get started?
 
-You can get oriented with the [example](https://github.com/annehulsey/cranes/tree/master/example/example.zip) provided on the `cranes` GitHub repository. The datafiles are available at DesignSafe ([DOI](https://doi.org/10.17603/ds2-dpam-dm40)), as described in the README files in the ***inputs***, ***outputs***, and ***journal figures/gis_data*** folders. Note that amount of data is very large: the zipped download of the combined folders is about 28GB.
+You can get oriented with the example hosted at DesignSafe, doi:[10.17603/ds2-dpam-dm40](https://doi.org/10.17603/ds2-dpam-dm40). 
 
-- ***inputs***: 
-  - *SF_Downtown_Inventory.csv*: 	locations and attributes of each buildings in the case study area
-  - *Mw7.2_SanAndreas_GroundMotionMaps.h5*: 	simulated ground motion maps
-  - *Vulnerabilities_original.h5*: 	building vulnerability profiles for each building
-  - *Vulnerabilities_retrofits.h5*: 	building vulnerability profiles, assuming the retrofitted buildings conform to current design requirements
 
-- ***outputs***: 
-  - *case_study_results.h5*: 	results of the case study
-  - *median_ground_motion_comparison_results.h5*: 	results without considering the variability of the ground motions
 
-- ***journal figures/gis_data***: 	.geojson files for mapping
+The ***outputs*** folder contains results of the case study in Hulsey et al. (2021):
 
-You can explore the results using the Jupyter Notebooks included in the ***journal figures*** folder. While they were created to produce the figures in Hulsey et at. (2021), they also serve as an orientation for accessing, viewing, and understanding the data.
+- *case_study_results.h5*: 	results of the case study
+- *median_ground_motion_comparison_results.h5*: 	results without considering the variability of the ground motions
 
-You can also re-simulate the results using the ***Run Recovery Simulation*** Jupyter Notebook. *Note that the analysis is probabilistic so the new results will not be identical to those in **case_study_results** file.* Alternatively, you can modify the assumptions in each analysis case to consider other mitigation strategies or sensitivity analyses or import your own input files. It would be helpful to explore how each analysis case is stored in the results file before making modifications.
+You can explore these results using the Jupyter Notebooks included in the ***journal figures*** folder. While they were created to produce the figures in Hulsey et at. (2021), they also serve as an orientation for accessing, viewing, and understanding the data.
+
+
+
+The ***inputs*** folder contains the data used to simulate the case study results.
+
+- *SF_Downtown_Inventory.csv*: 	locations and attributes of each buildings in the case study area
+- *Mw7.2_SanAndreas_GroundMotionMaps.h5*: 	simulated ground motion maps
+- *Vulnerabilities_original.h5*: 	building vulnerability profiles for each building
+- *Vulnerabilities_retrofits.h5*: 	building vulnerability profiles, assuming the retrofitted buildings conform to current design requirements
+
+You can use these inputs to re-simulate the results via the ***Run Recovery Simulation*** Jupyter Notebook. *Note that the analysis is probabilistic so the new results will not be identical to those in **case_study_results** file.* Alternatively, you can modify the assumptions in each analysis case to consider other mitigation strategies or sensitivity analyses or import your own input files. It would be helpful to explore how each analysis case is stored in the results file before making modifications.
+
+
 
 ## Installation
 
