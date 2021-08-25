@@ -23,7 +23,8 @@ from matplotlib.patches import Patch
 ## get the absolute path name of the included impeding factors parameter file
 import cranes
 import inspect
-impeding_factor_dictionary = os.path.dirname(inspect.getfile(cranes)) + '/impeding_factor_parameter_dictionary.json'
+main_dir = os.path.dirname(inspect.getfile(cranes))
+impeding_factor_dictionary = os.path.join(main_dir, 'impeding_factor_parameter_dictionary.json')
 
 
 def set_plot_formatting():
